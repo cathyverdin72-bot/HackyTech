@@ -1,428 +1,377 @@
-/* =====================================================
-   HACKYTECH V1
-   INTERACTIONS
-===================================================== */
+/* =========================================
+   HACKYTECH
+   MAIN JAVASCRIPT
+========================================= */
 
+document.addEventListener("DOMContentLoaded", () => {
 
-/* ================= MOBILE MENU ================= */
+  /* =========================================
+     ELEMENTS
+  ========================================== */
 
-const menuBtn = document.getElementById("menuBtn");
-const closeMenu = document.getElementById("closeMenu");
-const mobileMenu = document.getElementById("mobileMenu");
+  const body = document.body;
 
-menuBtn.addEventListener("click", () => {
-  mobileMenu.classList.add("open");
-});
+  const header = document.getElementById("site-header");
 
-closeMenu.addEventListener("click", () => {
-  mobileMenu.classList.remove("open");
-});
+  const menuToggle = document.getElementById("menu-toggle");
 
-document.querySelectorAll(".mobile-menu a").forEach(link => {
-  link.addEventListener("click", () => {
-    mobileMenu.classList.remove("open");
-  });
-});
+  const menuClose = document.getElementById("menu-close");
 
+  const mobileMenu = document.getElementById("mobile-menu");
 
-/* ================= PROBLEM DATA ================= */
+  const menuOverlay = document.getElementById("menu-overlay");
 
-const problemData = {
+  const exploreToggle =
+    document.getElementById("explore-toggle");
 
-  manual: {
-    problem: "Too much manual work",
-    analysis: "Process optimization",
-    solution: "Business automation",
-    result: "Less repetitive work. More time for the business."
-  },
+  const exploreArrow =
+    document.getElementById("explore-arrow");
 
-  tracking: {
-    problem: "Poor tracking",
-    analysis: "Operational visibility",
-    solution: "Tracking & management system",
-    result: "Know what's happening without chasing information."
-  },
+  const mobileSubmenu =
+    document.getElementById("mobile-submenu");
 
-  data: {
-    problem: "Scattered business data",
-    analysis: "Data organization",
-    solution: "Business database + dashboard",
-    result: "Turn scattered records into useful information."
-  },
 
-  customers: {
-    problem: "Customer information is scattered",
-    analysis: "Customer journey mapping",
-    solution: "Customer management system",
-    result: "Better information. Better customer experience."
-  },
+  /* =========================================
+     MOBILE MENU
+  ========================================== */
 
-  repetitive: {
-    problem: "Repetitive processes",
-    analysis: "Workflow automation",
-    solution: "Automated business workflow",
-    result: "Let technology handle repetitive tasks."
-  }
-
-};
+  function openMenu() {
 
+    mobileMenu.classList.add("active");
 
-/* ================= HERO ENGINE ================= */
-
-const heroProblem = document.getElementById("heroProblem");
-const heroAnalysis = document.getElementById("heroAnalysis");
-const heroSolution = document.getElementById("heroSolution");
-
-function updateHero(problem) {
-
-  heroProblem.textContent = problem.problem;
-  heroAnalysis.textContent = problem.analysis;
-  heroSolution.textContent = problem.solution;
-
-}
-
-
-/* ================= PROBLEM CARDS ================= */
-
-const problemCards = document.querySelectorAll(".problem-card");
-
-problemCards.forEach(card => {
-
-  card.addEventListener("click", () => {
-
-    const key = card.dataset.problem;
-
-    const selected = problemData[key];
+    menuOverlay.classList.add("active");
 
-    if (!selected) return;
-
-    problemCards.forEach(item => {
-      item.classList.remove("selected");
-    });
-
-    card.classList.add("selected");
-
-    updateHero(selected);
-
-  });
-
-});
-
-
-/* ================= SOLUTION ENGINE ================= */
-
-const demoProblems = [
-
-  {
-    problem:
-      "We don't know which products are selling or when stock is running low.",
-    business:
-      "— Small supermarket",
-    analysis:
-      "Inventory + sales visibility",
-    solution:
-      "Inventory & Analytics Dashboard",
-    result:
-      "Better decisions from real business data."
-  },
+    menuToggle.classList.add("active");
 
-  {
-    problem:
-      "Customers keep asking where their vehicle is in the service process.",
-    business:
-      "— Car wash",
-    analysis:
-      "Vehicle progress visibility",
-    solution:
-      "Vehicle Tracking System",
-    result:
-      "Customers know the status without calling."
-  },
-
-  {
-    problem:
-      "Appointments are scattered across WhatsApp messages and notebooks.",
-    business:
-      "— Salon",
-    analysis:
-      "Booking workflow",
-    solution:
-      "Digital Booking System",
-    result:
-      "Fewer missed appointments and easier scheduling."
-  },
-
-  {
-    problem:
-      "We have customer records but can't easily see their history.",
-    business:
-      "— Service business",
-    analysis:
-      "Customer data organization",
-    solution:
-      "Customer Management Database",
-    result:
-      "A clearer view of every customer."
-  },
-
-  {
-    problem:
-      "We spend hours doing the same administrative tasks every day.",
-    business:
-      "— Growing business",
-    analysis:
-      "Workflow automation",
-    solution:
-      "Automated Business Workflow",
-    result:
-      "Less manual work and more productive time."
-  }
-
-];
-
-
-let currentDemo = 0;
-
-const demoProblem = document.getElementById("demoProblem");
-const demoAnalysis = document.getElementById("demoAnalysis");
-const demoSolution = document.getElementById("demoSolution");
-const demoResult = document.getElementById("demoResult");
-const nextProblem = document.getElementById("nextProblem");
-
-function updateDemo() {
-
-  const item = demoProblems[currentDemo];
-
-  demoProblem.textContent =
-    `${item.problem} ${item.business}`;
-
-  demoAnalysis.textContent =
-    item.analysis;
-
-  demoSolution.textContent =
-    item.solution;
-
-  demoResult.textContent =
-    item.result;
-
-}
+    body.classList.add("menu-open");
 
-
-nextProblem.addEventListener("click", () => {
-
-  currentDemo++;
-
-  if (currentDemo >= demoProblems.length) {
-    currentDemo = 0;
-  }
+    menuToggle.setAttribute("aria-expanded", "true");
 
-  updateDemo();
+    mobileMenu.setAttribute("aria-hidden", "false");
 
-});
-
-
-/* ================= TECHNOLOGY DATA ================= */
-
-const technologyData = {
-
-  web: {
-    number: "01",
-    title: "Web",
-    description:
-      "Professional websites and digital platforms designed around the way your business works."
-  },
-
-  database: {
-    number: "02",
-    title: "Databases",
-    description:
-      "Organize customers, products, services, payments and operational records in structured systems."
-  },
-
-  data: {
-    number: "03",
-    title: "Data",
-    description:
-      "Turn business records into useful information that helps you understand performance."
-  },
-
-  automation: {
-    number: "04",
-    title: "Automation",
-    description:
-      "Reduce repetitive work by connecting processes and letting technology handle routine tasks."
-  },
-
-  ai: {
-    number: "05",
-    title: "AI",
-    description:
-      "Add intelligent assistance to workflows where AI can genuinely improve speed and decision-making."
-  },
-
-  apps: {
-    number: "06",
-    title: "Apps",
-    description:
-      "Custom digital tools built around specific business workflows and customer experiences."
-  },
-
-  tracking: {
-    number: "07",
-    title: "Tracking",
-    description:
-      "Give businesses and customers visibility into orders, vehicles, jobs, deliveries and processes."
-  },
-
-  dashboards: {
-    number: "08",
-    title: "Dashboards",
-    description:
-      "Bring important business information into one clear visual interface for faster decisions."
-  }
-
-};
-
-
-const techItems = document.querySelectorAll(".tech-item");
-
-const techNumber = document.querySelector(".tech-detail-number");
-const techTitle = document.getElementById("techTitle");
-const techDescription = document.getElementById("techDescription");
-
-techItems.forEach(item => {
-
-  item.addEventListener("click", () => {
-
-    const key = item.dataset.tech;
-
-    const data = technologyData[key];
-
-    if (!data) return;
-
-    techItems.forEach(tech => {
-      tech.classList.remove("active");
-    });
-
-    item.classList.add("active");
-
-    techNumber.textContent = data.number;
-    techTitle.textContent = data.title;
-    techDescription.textContent = data.description;
-
-  });
-
-});
-
-
-/* ================= FORM ================= */
-
-const problemForm = document.getElementById("problemForm");
-const formSuccess = document.getElementById("formSuccess");
-const resetForm = document.getElementById("resetForm");
-
-problemForm.addEventListener("submit", event => {
-
-  event.preventDefault();
-
-  const industry =
-    document.getElementById("industry").value;
-
-  const problem =
-    document.getElementById("problem").value;
-
-  const name =
-    document.getElementById("name").value;
-
-  const phone =
-    document.getElementById("phone").value;
-
-
-  if (!industry || !problem || !name || !phone) {
-
-    alert("Please complete the required fields.");
-
-    return;
+    menuToggle.setAttribute(
+      "aria-label",
+      "Close menu"
+    );
 
   }
 
 
-  /*
-    V1 DEMO MODE
+  function closeMenu() {
 
-    Later this will send the information
-    to the HackyTech backend/database.
-  */
+    mobileMenu.classList.remove("active");
 
-  console.log("HackyTech Problem Submission:", {
+    menuOverlay.classList.remove("active");
 
-    industry,
-    problem,
-    name,
-    phone,
+    menuToggle.classList.remove("active");
 
-    improvements:
-      [...document.querySelectorAll(
-        '.check-option input:checked'
-      )].map(input => input.value)
+    body.classList.remove("menu-open");
+
+    menuToggle.setAttribute("aria-expanded", "false");
+
+    mobileMenu.setAttribute("aria-hidden", "true");
+
+    menuToggle.setAttribute(
+      "aria-label",
+      "Open menu"
+    );
+
+  }
+
+
+  menuToggle.addEventListener(
+    "click",
+    () => {
+
+      const isOpen =
+        mobileMenu.classList.contains("active");
+
+      if (isOpen) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+
+    }
+  );
+
+
+  menuClose.addEventListener(
+    "click",
+    closeMenu
+  );
+
+
+  menuOverlay.addEventListener(
+    "click",
+    closeMenu
+  );
+
+
+  /* =========================================
+     CLOSE MENU WITH ESCAPE
+  ========================================== */
+
+  document.addEventListener(
+    "keydown",
+    (event) => {
+
+      if (
+        event.key === "Escape" &&
+        mobileMenu.classList.contains("active")
+      ) {
+
+        closeMenu();
+
+      }
+
+    }
+  );
+
+
+  /* =========================================
+     MOBILE NAVIGATION LINKS
+  ========================================== */
+
+  const mobileLinks =
+    document.querySelectorAll(
+      ".mobile-nav-link, .mobile-submenu a, .mobile-problem-button, .mobile-contact"
+    );
+
+  mobileLinks.forEach((link) => {
+
+    link.addEventListener(
+      "click",
+      () => {
+
+        closeMenu();
+
+      }
+    );
 
   });
 
 
-  problemForm
-    .querySelectorAll(".form-step, .submit-btn, .form-note")
-    .forEach(element => {
-      element.style.display = "none";
-    });
+  /* =========================================
+     EXPLORE PROBLEMS SUBMENU
+  ========================================== */
 
+  if (
+    exploreToggle &&
+    mobileSubmenu &&
+    exploreArrow
+  ) {
 
-  formSuccess.classList.add("show");
+    exploreToggle.addEventListener(
+      "click",
+      () => {
 
-});
+        const isExpanded =
+          exploreToggle.getAttribute(
+            "aria-expanded"
+          ) === "true";
 
+        exploreToggle.setAttribute(
+          "aria-expanded",
+          String(!isExpanded)
+        );
 
-/* ================= RESET FORM ================= */
+        mobileSubmenu.classList.toggle(
+          "active"
+        );
 
-resetForm.addEventListener("click", () => {
+        exploreArrow.textContent =
+          isExpanded ? "+" : "−";
 
-  problemForm.reset();
-
-  formSuccess.classList.remove("show");
-
-  problemForm
-    .querySelectorAll(".form-step, .submit-btn, .form-note")
-    .forEach(element => {
-      element.style.display = "";
-    });
-
-});
-
-
-/* ================= NAVBAR SCROLL ================= */
-
-const navbar = document.getElementById("navbar");
-
-window.addEventListener("scroll", () => {
-
-  if (window.scrollY > 40) {
-
-    navbar.style.background =
-      "rgba(7, 7, 7, 0.92)";
-
-  } else {
-
-    navbar.style.background =
-      "rgba(10, 10, 10, 0.78)";
+      }
+    );
 
   }
 
+
+  /* =========================================
+     HEADER SCROLL EFFECT
+  ========================================== */
+
+  function updateHeader() {
+
+    if (window.scrollY > 30) {
+
+      header.classList.add("scrolled");
+
+    } else {
+
+      header.classList.remove("scrolled");
+
+    }
+
+  }
+
+  window.addEventListener(
+    "scroll",
+    updateHeader,
+    { passive: true }
+  );
+
+  updateHeader();
+
+
+  /* =========================================
+     CATEGORY EXPANSION
+  ========================================== */
+
+  const categoryButtons =
+    document.querySelectorAll(
+      ".category-expand"
+    );
+
+
+  categoryButtons.forEach((button) => {
+
+    button.addEventListener(
+      "click",
+      () => {
+
+        const card =
+          button.closest(".category-card");
+
+        if (!card) return;
+
+        card.classList.toggle("expanded");
+
+      }
+    );
+
+  });
+
+
+  /* =========================================
+     SCROLL REVEAL
+  ========================================== */
+
+  const revealElements =
+    document.querySelectorAll(".reveal");
+
+
+  const revealObserver =
+    new IntersectionObserver(
+      (entries, observer) => {
+
+        entries.forEach((entry) => {
+
+          if (entry.isIntersecting) {
+
+            entry.target.classList.add(
+              "visible"
+            );
+
+            observer.unobserve(
+              entry.target
+            );
+
+          }
+
+        });
+
+      },
+      {
+        threshold: 0.12,
+        rootMargin: "0px 0px -40px 0px"
+      }
+    );
+
+
+  revealElements.forEach((element) => {
+
+    revealObserver.observe(element);
+
+  });
+
+
+  /* =========================================
+     SMOOTH ANCHOR NAVIGATION
+  ========================================== */
+
+  const anchors =
+    document.querySelectorAll(
+      'a[href^="#"]'
+    );
+
+
+  anchors.forEach((anchor) => {
+
+    anchor.addEventListener(
+      "click",
+      (event) => {
+
+        const targetId =
+          anchor.getAttribute("href");
+
+        if (
+          !targetId ||
+          targetId === "#"
+        ) {
+          return;
+        }
+
+        const target =
+          document.querySelector(
+            targetId
+          );
+
+        if (!target) {
+          return;
+        }
+
+        event.preventDefault();
+
+        const headerHeight =
+          header.offsetHeight;
+
+        const targetPosition =
+          target.getBoundingClientRect().top +
+          window.scrollY -
+          headerHeight -
+          10;
+
+        window.scrollTo({
+          top: targetPosition,
+          behavior: "smooth"
+        });
+
+      }
+    );
+
+  });
+
+
+  /* =========================================
+     PREVENT MOBILE MENU SCROLL LEAK
+  ========================================== */
+
+  window.addEventListener(
+    "resize",
+    () => {
+
+      if (
+        window.innerWidth > 950 &&
+        mobileMenu.classList.contains("active")
+      ) {
+
+        closeMenu();
+
+      }
+
+    }
+  );
+
+
+  /* =========================================
+     INITIALIZE
+  ========================================== */
+
+  console.log(
+    "HackyTech interface initialized."
+  );
+
 });
-
-
-/* ================= INITIALIZE ================= */
-
-updateDemo();
-
-console.log(
-  "HackyTech V1 loaded successfully."
-);
