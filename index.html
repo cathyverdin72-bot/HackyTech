@@ -2,821 +2,489 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>HackyTech | Technology That Solves Business Problems</title>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
   <meta
     name="description"
-    content="HackyTech turns real business problems into practical technology solutions."
+    content="HackyTech helps businesses turn real-world problems into practical technology solutions."
   >
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
-    rel="stylesheet"
+  <meta
+    name="theme-color"
+    content="#08090d"
   >
+
+  <title>HackyTech | Technology Built Around Problems</title>
 
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <!-- ================= NAVIGATION ================= -->
+  <!-- =========================
+       HEADER
+  ========================== -->
 
-  <header class="navbar" id="navbar">
-    <a href="#home" class="logo">
-      <span class="logo-mark">&lt;/&gt;</span>
-      <span>Hacky<span class="logo-tech">Tech</span></span>
+  <header class="site-header" id="site-header">
+
+    <a href="#home" class="logo" aria-label="HackyTech home">
+      <span class="logo-mark">H</span>
+      <span class="logo-text">Hacky<span>Tech</span></span>
     </a>
 
-    <nav class="desktop-nav">
+    <!-- Desktop Navigation -->
+    <nav class="desktop-nav" aria-label="Main navigation">
+      <a href="#home">Home</a>
+      <a href="#problems">Explore Problems</a>
+      <a href="#how-it-works">How It Works</a>
       <a href="#solutions">Solutions</a>
-      <a href="#industries">Industries</a>
-      <a href="#projects">Projects</a>
-      <a href="#process">How It Works</a>
-      <a href="#problem" class="nav-cta">Tell Us Your Problem <span>↗</span></a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
     </nav>
 
-    <button class="menu-btn" id="menuBtn" aria-label="Open menu">
+    <a href="#tell-us" class="header-cta">
+      Tell Us Your Problem
+    </a>
+
+    <!-- Mobile Menu Button -->
+    <button
+      class="menu-toggle"
+      id="menu-toggle"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <span></span>
       <span></span>
       <span></span>
     </button>
+
   </header>
 
-  <!-- MOBILE MENU -->
 
-  <div class="mobile-menu" id="mobileMenu">
-    <button class="close-menu" id="closeMenu">×</button>
+  <!-- =========================
+       MOBILE MENU
+  ========================== -->
 
-    <a href="#solutions">Solutions</a>
-    <a href="#industries">Industries</a>
-    <a href="#projects">Projects</a>
-    <a href="#process">How It Works</a>
-    <a href="#problem" class="mobile-cta">Tell Us Your Problem →</a>
-  </div>
+  <div class="menu-overlay" id="menu-overlay"></div>
 
+  <aside
+    class="mobile-menu"
+    id="mobile-menu"
+    aria-hidden="true"
+  >
 
-  <main>
+    <div class="mobile-menu-header">
 
-    <!-- ================= HERO ================= -->
-
-    <section class="hero section" id="home">
-
-      <div class="hero-content">
-
-        <div class="eyebrow">
-          <span class="pulse"></span>
-          TECHNOLOGY × BUSINESS
-        </div>
-
-        <h1>
-          We turn
-          <span class="gradient-text">business problems</span>
-          into technology.
-        </h1>
-
-        <p class="hero-description">
-          Tell us what's slowing your business down.
-          We'll help you find a smarter way to solve it.
-        </p>
-
-        <div class="hero-buttons">
-          <a href="#problem" class="primary-btn">
-            Tell Us Your Problem
-            <span>→</span>
-          </a>
-
-          <a href="#solutions" class="secondary-btn">
-            Explore Solutions
-            <span>↓</span>
-          </a>
-        </div>
-
-        <div class="hero-proof">
-          <div class="proof-item">
-            <strong>20+</strong>
-            <span>Business examples</span>
-          </div>
-
-          <div class="proof-line"></div>
-
-          <div class="proof-item">
-            <strong>∞</strong>
-            <span>Room to scale</span>
-          </div>
-        </div>
-
-      </div>
-
-
-      <!-- HERO VISUAL -->
-
-      <div class="hero-visual">
-
-        <div class="grid-background"></div>
-
-        <div class="orbit orbit-one"></div>
-        <div class="orbit orbit-two"></div>
-
-        <div class="floating-tag tag-web">WEB</div>
-        <div class="floating-tag tag-data">DATA</div>
-        <div class="floating-tag tag-ai">AI</div>
-        <div class="floating-tag tag-db">DATABASE</div>
-
-        <div class="solution-card">
-
-          <div class="card-top">
-            <span class="status-dot"></span>
-            HACKYTECH ENGINE
-            <span class="live">LIVE</span>
-          </div>
-
-          <div class="engine-step active-step">
-            <div class="step-icon">01</div>
-            <div>
-              <small>BUSINESS PROBLEM</small>
-              <strong id="heroProblem">
-                Too much manual work
-              </strong>
-            </div>
-          </div>
-
-          <div class="connector"></div>
-
-          <div class="engine-step">
-            <div class="step-icon">02</div>
-            <div>
-              <small>ANALYSIS</small>
-              <strong id="heroAnalysis">
-                Process optimization
-              </strong>
-            </div>
-          </div>
-
-          <div class="connector"></div>
-
-          <div class="engine-step solution-step">
-            <div class="step-icon">03</div>
-            <div>
-              <small>POSSIBLE SOLUTION</small>
-              <strong id="heroSolution">
-                Business automation
-              </strong>
-            </div>
-          </div>
-
-          <div class="result-bar">
-            <span>RESULT</span>
-            <strong>Work smarter →</strong>
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- ================= PROBLEM SELECTOR ================= -->
-
-    <section class="problem-selector section">
-
-      <div class="section-heading compact">
-        <span class="section-number">01 / START HERE</span>
-
-        <h2>
-          What's slowing
-          <span>your business down?</span>
-        </h2>
-      </div>
-
-      <div class="problem-grid">
-
-        <button class="problem-card" data-problem="manual">
-          <span class="problem-number">01</span>
-          <span class="problem-icon">◫</span>
-          <strong>Too much manual work</strong>
-          <small>Save time & reduce repetitive tasks</small>
-          <span class="arrow">↗</span>
-        </button>
-
-        <button class="problem-card" data-problem="tracking">
-          <span class="problem-number">02</span>
-          <span class="problem-icon">⌁</span>
-          <strong>Poor tracking</strong>
-          <small>Know what's happening in your business</small>
-          <span class="arrow">↗</span>
-        </button>
-
-        <button class="problem-card" data-problem="data">
-          <span class="problem-number">03</span>
-          <span class="problem-icon">◈</span>
-          <strong>Scattered data</strong>
-          <small>Turn records into useful information</small>
-          <span class="arrow">↗</span>
-        </button>
-
-        <button class="problem-card" data-problem="customers">
-          <span class="problem-number">04</span>
-          <span class="problem-icon">◎</span>
-          <strong>Customer problems</strong>
-          <small>Organize and improve customer experience</small>
-          <span class="arrow">↗</span>
-        </button>
-
-        <button class="problem-card" data-problem="repetitive">
-          <span class="problem-number">05</span>
-          <span class="problem-icon">↻</span>
-          <strong>Repetitive processes</strong>
-          <small>Automate what shouldn't be manual</small>
-          <span class="arrow">↗</span>
-        </button>
-
-      </div>
-
-      <a href="#problem" class="text-link">
-        My problem is different <span>→</span>
+      <a href="#home" class="logo mobile-logo">
+        <span class="logo-mark">H</span>
+        <span class="logo-text">Hacky<span>Tech</span></span>
       </a>
 
-    </section>
+      <button
+        class="menu-close"
+        id="menu-close"
+        aria-label="Close menu"
+      >
+        <span></span>
+        <span></span>
+      </button>
 
+    </div>
 
-    <!-- ================= INDUSTRIES ================= -->
 
-    <section class="industries section" id="industries">
+    <div class="mobile-menu-content">
 
-      <div class="section-heading">
+      <p class="menu-label">NAVIGATION</p>
 
-        <div>
-          <span class="section-number">02 / INDUSTRIES</span>
+      <nav class="mobile-nav" aria-label="Mobile navigation">
 
-          <h2>
-            Real businesses.
-            <span>Real problems.</span>
-          </h2>
-        </div>
+        <a href="#home" class="mobile-nav-link">
+          <span>Home</span>
+          <span class="nav-arrow">→</span>
+        </a>
 
-        <p>
-          We don't build the same thing for everyone.
-          We understand the problem first.
-        </p>
+        <div class="mobile-nav-group">
 
-      </div>
+          <button
+            class="mobile-nav-expand"
+            id="explore-toggle"
+            aria-expanded="false"
+          >
+            <span>Explore Problems</span>
+            <span class="nav-arrow" id="explore-arrow">+</span>
+          </button>
 
+          <div class="mobile-submenu" id="mobile-submenu">
 
-      <div class="industry-grid">
+            <a href="#business-retail">
+              Business & Retail
+            </a>
 
-        <!-- OPERATIONS -->
+            <a href="#hospitality">
+              Hospitality & Food
+            </a>
 
-        <article class="industry-card large-card">
+            <a href="#professional">
+              Professional Services
+            </a>
 
-          <div class="industry-top">
-            <span class="industry-number">01</span>
-            <span class="industry-symbol">↗</span>
-          </div>
+            <a href="#operations">
+              Operations & Industry
+            </a>
 
-          <div class="industry-icon">▦</div>
-
-          <h3>Business Operations</h3>
-
-          <p>
-            Organize projects, customers, orders and operations.
-          </p>
-
-          <div class="industry-tags">
-            <span>Construction</span>
-            <span>Real Estate</span>
-            <span>Wholesale</span>
-            <span>Logistics</span>
-          </div>
-
-          <div class="industry-solution">
-            <small>POSSIBLE SOLUTIONS</small>
-            <strong>Management systems · Dashboards · Tracking</strong>
-          </div>
-
-        </article>
-
-
-        <!-- COMMERCE -->
-
-        <article class="industry-card">
-
-          <div class="industry-top">
-            <span class="industry-number">02</span>
-            <span class="industry-symbol">↗</span>
-          </div>
-
-          <div class="industry-icon">▤</div>
-
-          <h3>Retail & Commerce</h3>
-
-          <p>
-            Know what sells, what moves and what's running low.
-          </p>
-
-          <div class="industry-tags">
-            <span>Supermarket</span>
-            <span>Pharmacy</span>
-            <span>Laundry</span>
-            <span>Car Wash</span>
-          </div>
-
-          <div class="industry-solution">
-            <small>POSSIBLE SOLUTIONS</small>
-            <strong>Inventory · Sales · Customer systems</strong>
-          </div>
-
-        </article>
-
-
-        <!-- HOSPITALITY -->
-
-        <article class="industry-card">
-
-          <div class="industry-top">
-            <span class="industry-number">03</span>
-            <span class="industry-symbol">↗</span>
-          </div>
-
-          <div class="industry-icon">◇</div>
-
-          <h3>Hospitality & Lifestyle</h3>
-
-          <p>
-            Simplify bookings, orders and customer experiences.
-          </p>
-
-          <div class="industry-tags">
-            <span>Restaurant</span>
-            <span>Hotel</span>
-            <span>Salon</span>
-            <span>Gym</span>
-          </div>
-
-          <div class="industry-solution">
-            <small>POSSIBLE SOLUTIONS</small>
-            <strong>Booking · Orders · Membership</strong>
-          </div>
-
-        </article>
-
-
-        <!-- SERVICES -->
-
-        <article class="industry-card">
-
-          <div class="industry-top">
-            <span class="industry-number">04</span>
-            <span class="industry-symbol">↗</span>
-          </div>
-
-          <div class="industry-icon">◎</div>
-
-          <h3>People & Services</h3>
-
-          <p>
-            Manage people, appointments, attendance and events.
-          </p>
-
-          <div class="industry-tags">
-            <span>Clinic</span>
-            <span>School</span>
-            <span>Tutoring</span>
-            <span>Events</span>
-          </div>
-
-          <div class="industry-solution">
-            <small>POSSIBLE SOLUTIONS</small>
-            <strong>Appointments · Records · Management</strong>
-          </div>
-
-        </article>
-
-
-        <!-- INDUSTRY FINANCE -->
-
-        <article class="industry-card large-card">
-
-          <div class="industry-top">
-            <span class="industry-number">05</span>
-            <span class="industry-symbol">↗</span>
-          </div>
-
-          <div class="industry-icon">◌</div>
-
-          <h3>Industry & Finance</h3>
-
-          <p>
-            Track production, repairs, money and operational performance.
-          </p>
-
-          <div class="industry-tags">
-            <span>Agriculture</span>
-            <span>Microfinance</span>
-            <span>Auto Repair</span>
-            <span>More</span>
-          </div>
-
-          <div class="industry-solution">
-            <small>POSSIBLE SOLUTIONS</small>
-            <strong>Analytics · Financial tracking · Databases</strong>
-          </div>
-
-        </article>
-
-      </div>
-
-      <div class="industry-footer">
-        <span>20 examples today</span>
-        <strong>50+ industries tomorrow.</strong>
-        <span>Our structure is built to grow.</span>
-      </div>
-
-    </section>
-
-
-    <!-- ================= SOLUTION ENGINE ================= -->
-
-    <section class="solution-engine section" id="solutions">
-
-      <div class="section-heading centered">
-
-        <span class="section-number">03 / THE HACKYTECH METHOD</span>
-
-        <h2>
-          You bring the problem.
-          <span>We find the technology.</span>
-        </h2>
-
-        <p>
-          You don't need to know whether you need an app,
-          database or automation. Start with the problem.
-        </p>
-
-      </div>
-
-
-      <div class="engine-demo">
-
-        <div class="demo-column">
-
-          <span class="demo-label">THE PROBLEM</span>
-
-          <div class="demo-box problem-box">
-            <span class="quote-mark">“</span>
-
-            <p id="demoProblem">
-              We don't know which products are selling
-              or when stock is running low.
-            </p>
-
-            <span class="demo-business">
-              — Small supermarket
-            </span>
-          </div>
-
-        </div>
-
-
-        <div class="demo-arrow">
-          <span>→</span>
-        </div>
-
-
-        <div class="demo-column">
-
-          <span class="demo-label">HACKYTECH THINKING</span>
-
-          <div class="demo-box analysis-box">
-
-            <span class="analysis-icon">⌁</span>
-
-            <strong id="demoAnalysis">
-              Inventory + sales visibility
-            </strong>
-
-            <p>
-              Connect the information that is
-              currently scattered.
-            </p>
+            <a href="#education">
+              Education & Community
+            </a>
 
           </div>
 
         </div>
 
-
-        <div class="demo-arrow">
-          <span>→</span>
-        </div>
-
-
-        <div class="demo-column">
-
-          <span class="demo-label">POSSIBLE SOLUTION</span>
-
-          <div class="demo-box solution-box">
-
-            <span class="solution-icon">✦</span>
-
-            <strong id="demoSolution">
-              Inventory & Analytics Dashboard
-            </strong>
-
-            <p>
-              Track stock, sales and business performance.
-            </p>
-
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <div class="engine-result">
-
-        <div>
-          <small>THE RESULT</small>
-          <strong id="demoResult">
-            Better decisions from real business data.
-          </strong>
-        </div>
-
-        <button id="nextProblem">
-          Try another problem ↻
-        </button>
-
-      </div>
-
-    </section>
-
-
-    <!-- ================= TECHNOLOGY ================= -->
-
-    <section class="technology section">
-
-      <div class="section-heading">
-
-        <div>
-          <span class="section-number">04 / TECHNOLOGY</span>
-
-          <h2>
-            The technology
-            <span>behind the solution.</span>
-          </h2>
-        </div>
-
-      </div>
-
-
-      <div class="technology-grid">
-
-        <button class="tech-item active" data-tech="web">
-          <span>01</span>
-          <strong>WEB</strong>
-          <small>Websites & platforms</small>
-        </button>
-
-        <button class="tech-item" data-tech="database">
-          <span>02</span>
-          <strong>DATABASES</strong>
-          <small>Organize business records</small>
-        </button>
-
-        <button class="tech-item" data-tech="data">
-          <span>03</span>
-          <strong>DATA</strong>
-          <small>Understand your business</small>
-        </button>
-
-        <button class="tech-item" data-tech="automation">
-          <span>04</span>
-          <strong>AUTOMATION</strong>
-          <small>Reduce repetitive work</small>
-        </button>
-
-        <button class="tech-item" data-tech="ai">
-          <span>05</span>
-          <strong>AI</strong>
-          <small>Smarter digital workflows</small>
-        </button>
-
-        <button class="tech-item" data-tech="apps">
-          <span>06</span>
-          <strong>APPS</strong>
-          <small>Custom business tools</small>
-        </button>
-
-        <button class="tech-item" data-tech="tracking">
-          <span>07</span>
-          <strong>TRACKING</strong>
-          <small>Know what's happening</small>
-        </button>
-
-        <button class="tech-item" data-tech="dashboards">
-          <span>08</span>
-          <strong>DASHBOARDS</strong>
-          <small>See the bigger picture</small>
-        </button>
-
-      </div>
-
-
-      <div class="tech-detail" id="techDetail">
-
-        <div class="tech-detail-number">01</div>
-
-        <div>
-          <span>SELECTED TECHNOLOGY</span>
-          <h3 id="techTitle">Web</h3>
-          <p id="techDescription">
-            Professional websites and digital platforms
-            designed around the way your business works.
-          </p>
-        </div>
-
-        <div class="tech-detail-symbol">↗</div>
-
-      </div>
-
-    </section>
-
-
-    <!-- ================= PROCESS ================= -->
-
-    <section class="process section" id="process">
-
-      <div class="section-heading centered">
-
-        <span class="section-number">05 / HOW IT WORKS</span>
-
-        <h2>
-          From problem
-          <span>to solution.</span>
-        </h2>
-
-      </div>
-
-
-      <div class="process-line">
-
-        <div class="process-step">
-          <span class="process-number">01</span>
-          <div class="process-icon">?</div>
-          <h3>Tell Us</h3>
-          <p>You explain what's happening.</p>
-        </div>
-
-        <div class="process-step">
-          <span class="process-number">02</span>
-          <div class="process-icon">⌁</div>
-          <h3>Understand</h3>
-          <p>We study the workflow.</p>
-        </div>
-
-        <div class="process-step">
-          <span class="process-number">03</span>
-          <div class="process-icon">◇</div>
-          <h3>Design</h3>
-          <p>We design the right solution.</p>
-        </div>
-
-        <div class="process-step">
-          <span class="process-number">04</span>
-          <div class="process-icon">‹/›</div>
-          <h3>Build</h3>
-          <p>We turn it into working technology.</p>
-        </div>
-
-        <div class="process-step">
-          <span class="process-number">05</span>
-          <div class="process-icon">↗</div>
-          <h3>Improve</h3>
-          <p>We keep making it better.</p>
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- ================= PROJECTS ================= -->
-
-    <section class="projects section" id="projects">
-
-      <div class="section-heading">
-
-        <div>
-          <span class="section-number">06 / PROJECTS</span>
-
-          <h2>
-            Problems we've
-            <span>turned into products.</span>
-          </h2>
-        </div>
-
-        <a href="#problem" class="text-link">
-          Start a project →
+        <a href="#how-it-works" class="mobile-nav-link">
+          <span>How It Works</span>
+          <span class="nav-arrow">→</span>
+        </a>
+
+        <a href="#solutions" class="mobile-nav-link">
+          <span>Solutions</span>
+          <span class="nav-arrow">→</span>
+        </a>
+
+        <a href="#about" class="mobile-nav-link">
+          <span>About</span>
+          <span class="nav-arrow">→</span>
+        </a>
+
+      </nav>
+
+
+      <div class="mobile-menu-bottom">
+
+        <a href="#tell-us" class="mobile-problem-button">
+          <span>
+            Tell Us Your Problem
+          </span>
+          <span>↗</span>
+        </a>
+
+        <a href="#contact" class="mobile-contact">
+          Contact HackyTech
         </a>
 
       </div>
 
+    </div>
 
-      <div class="project-grid">
+  </aside>
 
-        <article class="project-card">
 
-          <div class="project-visual lavage-visual">
+  <main>
 
-            <div class="mini-dashboard">
+    <!-- =========================
+         HERO
+    ========================== -->
 
-              <div class="mini-top">
-                LAVAGE TRACKER
-                <span>●</span>
-              </div>
+    <section class="hero" id="home">
 
-              <div class="mini-status">
-                <span class="mini-car">🚗</span>
-                <div>
-                  <small>LAV-1001</small>
-                  <strong>Detailing</strong>
-                </div>
-              </div>
+      <div class="hero-glow"></div>
 
-              <div class="mini-progress">
-                <span></span>
-              </div>
+      <div class="hero-content">
 
-            </div>
+        <p class="eyebrow">
+          PROBLEM-FIRST TECHNOLOGY
+        </p>
 
-          </div>
+        <h1>
+          Don't come to us with a technology.
+          <span>Come with a problem.</span>
+        </h1>
 
-          <div class="project-content">
+        <p class="hero-description">
+          HackyTech helps businesses understand real problems,
+          discover practical solutions, and build technology
+          that actually works for them.
+        </p>
 
-            <div class="project-meta">
-              <span>CASE 01</span>
-              <span>TRACKING SYSTEM</span>
-            </div>
+        <div class="hero-buttons">
 
-            <h3>Lavage International Tracker</h3>
+          <a href="#tell-us" class="primary-button">
+            Tell Us Your Problem
+            <span>↗</span>
+          </a>
 
-            <p>
-              A digital system designed to make vehicle
-              service progress visible to staff and customers.
-            </p>
+          <a href="#problems" class="secondary-button">
+            Explore Problems
+            <span>↓</span>
+          </a>
 
-            <div class="project-tags">
-              <span>Database</span>
-              <span>Tracking</span>
-              <span>Dashboard</span>
-            </div>
+        </div>
+
+        <div class="hero-note">
+          <span class="pulse-dot"></span>
+          We start with the problem — not the technology.
+        </div>
+
+      </div>
+
+
+      <div class="hero-visual">
+
+        <div class="problem-card card-one">
+          <span class="card-number">01</span>
+          <strong>Problem</strong>
+          <p>Understand what is actually happening.</p>
+        </div>
+
+        <div class="problem-card card-two">
+          <span class="card-number">02</span>
+          <strong>Solution</strong>
+          <p>Design something practical and useful.</p>
+        </div>
+
+        <div class="problem-card card-three">
+          <span class="card-number">03</span>
+          <strong>Improve</strong>
+          <p>Keep making the system better.</p>
+        </div>
+
+        <div class="visual-circle">
+          <span>H</span>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         INTRO
+    ========================== -->
+
+    <section class="intro section">
+
+      <div class="section-heading reveal">
+
+        <p class="eyebrow">
+          THE HACKYTECH APPROACH
+        </p>
+
+        <h2>
+          Technology should solve a problem.
+        </h2>
+
+      </div>
+
+      <div class="intro-grid">
+
+        <div class="intro-text reveal">
+
+          <p>
+            Many businesses know that something is not working,
+            but they don't always know what technology they need.
+          </p>
+
+          <p>
+            That's where HackyTech starts.
+          </p>
+
+        </div>
+
+        <div class="intro-highlight reveal">
+
+          <span class="quote-mark">“</span>
+
+          <p>
+            We don't begin by asking,
+            <strong>“What app should we build?”</strong>
+          </p>
+
+          <p>
+            We begin by asking,
+            <strong>“What problem are you trying to solve?”</strong>
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         PROBLEMS
+    ========================== -->
+
+    <section class="problems section" id="problems">
+
+      <div class="section-heading centered reveal">
+
+        <p class="eyebrow">
+          EXPLORE
+        </p>
+
+        <h2>
+          What problem are you facing?
+        </h2>
+
+        <p>
+          Explore common business problems and see how technology
+          can turn them into opportunities.
+        </p>
+
+      </div>
+
+
+      <div class="category-grid">
+
+        <article
+          class="category-card reveal"
+          id="business-retail"
+        >
+
+          <div class="category-icon">01</div>
+
+          <h3>Business & Retail</h3>
+
+          <p>
+            Improve sales, customer records, inventory,
+            payments and everyday operations.
+          </p>
+
+          <button class="category-expand">
+            Explore category <span>↗</span>
+          </button>
+
+          <div class="category-examples">
+
+            <span>Inventory tracking</span>
+            <span>Customer records</span>
+            <span>Sales reporting</span>
+            <span>Digital payments</span>
 
           </div>
 
         </article>
 
 
-        <article class="project-card">
+        <article
+          class="category-card reveal"
+          id="hospitality"
+        >
 
-          <div class="project-visual feast-visual">
+          <div class="category-icon">02</div>
 
-            <div class="food-interface">
+          <h3>Hospitality & Food</h3>
 
-              <span>FEAST & FÊTE</span>
+          <p>
+            Make restaurants, food businesses and hospitality
+            services easier to manage.
+          </p>
 
-              <div class="food-line"></div>
+          <button class="category-expand">
+            Explore category <span>↗</span>
+          </button>
 
-              <strong>GOOD FOOD.</strong>
-              <strong>GREAT MOMENTS.</strong>
+          <div class="category-examples">
 
-              <small>DIGITAL EXPERIENCE</small>
-
-            </div>
+            <span>Order management</span>
+            <span>Bookings</span>
+            <span>Customer experience</span>
+            <span>Service tracking</span>
 
           </div>
 
-          <div class="project-content">
+        </article>
 
-            <div class="project-meta">
-              <span>CASE 02</span>
-              <span>RESTAURANT TECHNOLOGY</span>
-            </div>
 
-            <h3>Feast & Fête</h3>
+        <article
+          class="category-card reveal"
+          id="professional"
+        >
 
-            <p>
-              Exploring how technology can improve
-              the digital restaurant experience and workflow.
-            </p>
+          <div class="category-icon">03</div>
 
-            <div class="project-tags">
-              <span>Web</span>
-              <span>Workflow</span>
-              <span>Experience</span>
-            </div>
+          <h3>Professional Services</h3>
+
+          <p>
+            Organize clients, appointments, documents,
+            communication and workflows.
+          </p>
+
+          <button class="category-expand">
+            Explore category <span>↗</span>
+          </button>
+
+          <div class="category-examples">
+
+            <span>Client management</span>
+            <span>Appointments</span>
+            <span>Document workflows</span>
+            <span>Notifications</span>
+
+          </div>
+
+        </article>
+
+
+        <article
+          class="category-card reveal"
+          id="operations"
+        >
+
+          <div class="category-icon">04</div>
+
+          <h3>Operations & Industry</h3>
+
+          <p>
+            Bring better visibility and organization to
+            physical business operations.
+          </p>
+
+          <button class="category-expand">
+            Explore category <span>↗</span>
+          </button>
+
+          <div class="category-examples">
+
+            <span>Job tracking</span>
+            <span>Staff workflows</span>
+            <span>Maintenance</span>
+            <span>Operations dashboards</span>
+
+          </div>
+
+        </article>
+
+
+        <article
+          class="category-card reveal"
+          id="education"
+        >
+
+          <div class="category-icon">05</div>
+
+          <h3>Education & Community</h3>
+
+          <p>
+            Connect people, organize knowledge and create
+            better digital learning experiences.
+          </p>
+
+          <button class="category-expand">
+            Explore category <span>↗</span>
+          </button>
+
+          <div class="category-examples">
+
+            <span>Learning platforms</span>
+            <span>Communities</span>
+            <span>Skill matching</span>
+            <span>Digital resources</span>
 
           </div>
 
@@ -827,197 +495,248 @@
     </section>
 
 
-    <!-- ================= PROBLEM FORM ================= -->
+    <!-- =========================
+         HOW IT WORKS
+    ========================== -->
 
-    <section class="problem-section section" id="problem">
+    <section class="process section" id="how-it-works">
 
-      <div class="problem-container">
+      <div class="section-heading reveal">
 
-        <div class="problem-intro">
+        <p class="eyebrow">
+          OUR PROCESS
+        </p>
 
-          <span class="section-number">07 / START HERE</span>
+        <h2>
+          From problem to working solution.
+        </h2>
 
-          <h2>
-            Got a business
-            <span>problem?</span>
-          </h2>
+      </div>
 
-          <p>
-            Don't worry about knowing the technology.
-            Just tell us what's going wrong.
-          </p>
 
-          <div class="problem-promise">
-            <span>01</span>
+      <div class="process-list">
+
+        <div class="process-item reveal">
+
+          <span class="process-number">01</span>
+
+          <div>
+            <h3>Understand</h3>
             <p>
-              We'll understand the problem before
-              suggesting a solution.
-            </p>
-          </div>
-
-          <div class="problem-promise">
-            <span>02</span>
-            <p>
-              The right technology depends on
-              the problem — not the other way around.
+              We identify the real problem, the people affected
+              and how the current process works.
             </p>
           </div>
 
         </div>
 
 
-        <form class="problem-form" id="problemForm">
+        <div class="process-item reveal">
 
-          <div class="form-step">
-            <span class="form-number">01</span>
+          <span class="process-number">02</span>
 
-            <label for="industry">
-              What type of business do you have?
-            </label>
-
-            <select id="industry" required>
-              <option value="">Select your industry</option>
-              <option>Retail & Commerce</option>
-              <option>Hospitality</option>
-              <option>Healthcare</option>
-              <option>Education</option>
-              <option>Construction</option>
-              <option>Real Estate</option>
-              <option>Logistics</option>
-              <option>Finance</option>
-              <option>Agriculture</option>
-              <option>Beauty & Wellness</option>
-              <option>Automotive</option>
-              <option>Other</option>
-            </select>
-
-          </div>
-
-
-          <div class="form-step">
-
-            <span class="form-number">02</span>
-
-            <label for="problem">
-              What's happening?
-            </label>
-
-            <textarea
-              id="problem"
-              rows="4"
-              placeholder="Tell us what currently takes too much time, causes mistakes, or makes your business difficult to manage..."
-              required
-            ></textarea>
-
-          </div>
-
-
-          <div class="form-step">
-
-            <span class="form-number">03</span>
-
-            <label>
-              What would you like to improve?
-            </label>
-
-            <div class="checkbox-grid">
-
-              <label class="check-option">
-                <input type="checkbox" value="Save time">
-                <span>Save time</span>
-              </label>
-
-              <label class="check-option">
-                <input type="checkbox" value="Reduce mistakes">
-                <span>Reduce mistakes</span>
-              </label>
-
-              <label class="check-option">
-                <input type="checkbox" value="Customers">
-                <span>Manage customers</span>
-              </label>
-
-              <label class="check-option">
-                <input type="checkbox" value="Operations">
-                <span>Track operations</span>
-              </label>
-
-              <label class="check-option">
-                <input type="checkbox" value="Data">
-                <span>Understand data</span>
-              </label>
-
-              <label class="check-option">
-                <input type="checkbox" value="Automation">
-                <span>Automate work</span>
-              </label>
-
-            </div>
-
-          </div>
-
-
-          <div class="form-step">
-
-            <span class="form-number">04</span>
-
-            <label>Your contact</label>
-
-            <div class="contact-fields">
-
-              <input
-                type="text"
-                id="name"
-                placeholder="Your name"
-                required
-              >
-
-              <input
-                type="tel"
-                id="phone"
-                placeholder="WhatsApp / Phone"
-                required
-              >
-
-              <input
-                type="email"
-                id="email"
-                placeholder="Email (optional)"
-              >
-
-            </div>
-
-          </div>
-
-
-          <button type="submit" class="submit-btn">
-            <span>Send My Problem</span>
-            <strong>→</strong>
-          </button>
-
-          <p class="form-note">
-            No technical knowledge required.
-            Just tell us what's happening.
-          </p>
-
-          <div class="form-success" id="formSuccess">
-
-            <div class="success-icon">✓</div>
-
-            <h3>Problem received.</h3>
-
+          <div>
+            <h3>Design</h3>
             <p>
-              Your information has been captured.
-              This form is currently running in demo mode.
+              We turn the problem into a clear user experience
+              and practical digital solution.
             </p>
-
-            <button type="button" id="resetForm">
-              Submit another problem
-            </button>
-
           </div>
 
-        </form>
+        </div>
+
+
+        <div class="process-item reveal">
+
+          <span class="process-number">03</span>
+
+          <div>
+            <h3>Build</h3>
+            <p>
+              We develop the system with the right technology,
+              structure and scalability in mind.
+            </p>
+          </div>
+
+        </div>
+
+
+        <div class="process-item reveal">
+
+          <span class="process-number">04</span>
+
+          <div>
+            <h3>Improve</h3>
+            <p>
+              After launch, we learn from real usage and continue
+              improving the solution.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         SOLUTIONS
+    ========================== -->
+
+    <section class="solutions section" id="solutions">
+
+      <div class="section-heading centered reveal">
+
+        <p class="eyebrow">
+          WHAT WE BUILD
+        </p>
+
+        <h2>
+          Solutions designed around your business.
+        </h2>
+
+      </div>
+
+
+      <div class="solution-grid">
+
+        <div class="solution-card reveal">
+          <span>01</span>
+          <h3>Web Platforms</h3>
+          <p>
+            Responsive websites and business platforms
+            designed for real users.
+          </p>
+        </div>
+
+        <div class="solution-card reveal">
+          <span>02</span>
+          <h3>Business Systems</h3>
+          <p>
+            Digital tools that organize everyday operations,
+            customers and workflows.
+          </p>
+        </div>
+
+        <div class="solution-card reveal">
+          <span>03</span>
+          <h3>Automation</h3>
+          <p>
+            Reduce repetitive work through smarter digital
+            processes and integrations.
+          </p>
+        </div>
+
+        <div class="solution-card reveal">
+          <span>04</span>
+          <h3>Data & Dashboards</h3>
+          <p>
+            Turn scattered business information into useful
+            insights and decisions.
+          </p>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         ABOUT
+    ========================== -->
+
+    <section class="about section" id="about">
+
+      <div class="about-content reveal">
+
+        <p class="eyebrow">
+          WHY HACKYTECH
+        </p>
+
+        <h2>
+          We build for the problem,
+          not for the trend.
+        </h2>
+
+        <p>
+          AI, apps, automation and databases are powerful tools.
+          But the technology itself isn't the goal.
+        </p>
+
+        <p>
+          The goal is to make something useful, understandable
+          and valuable for the people who use it.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         TELL US YOUR PROBLEM
+    ========================== -->
+
+    <section class="problem-cta section" id="tell-us">
+
+      <div class="cta-box reveal">
+
+        <p class="eyebrow">
+          HAVE A PROBLEM?
+        </p>
+
+        <h2>
+          Tell us what's not working.
+        </h2>
+
+        <p>
+          You don't need to know the technology.
+          Just explain the problem. We'll help you explore
+          what a solution could look like.
+        </p>
+
+        <a href="#contact" class="primary-button">
+          Start a Conversation
+          <span>↗</span>
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONTACT
+    ========================== -->
+
+    <section class="contact section" id="contact">
+
+      <div class="section-heading reveal">
+
+        <p class="eyebrow">
+          CONTACT
+        </p>
+
+        <h2>
+          Let's solve something.
+        </h2>
+
+      </div>
+
+      <div class="contact-content reveal">
+
+        <p>
+          Have a business problem, idea or process that could
+          work better?
+        </p>
+
+        <a
+          href="mailto:hello@hackytech.com"
+          class="contact-link"
+        >
+          hello@hackytech.com
+        </a>
 
       </div>
 
@@ -1026,53 +745,33 @@
   </main>
 
 
-  <!-- ================= FOOTER ================= -->
+  <!-- =========================
+       FOOTER
+  ========================== -->
 
-  <footer class="footer">
+  <footer class="site-footer">
 
     <div class="footer-top">
 
-      <div class="footer-brand">
+      <a href="#home" class="logo">
+        <span class="logo-mark">H</span>
+        <span class="logo-text">Hacky<span>Tech</span></span>
+      </a>
 
-        <a href="#home" class="logo">
-          <span class="logo-mark">&lt;/&gt;</span>
-          <span>Hacky<span class="logo-tech">Tech</span></span>
-        </a>
-
-        <p>
-          Technology that solves
-          real business problems.
-        </p>
-
-      </div>
-
-
-      <div class="footer-links">
-
-        <div>
-          <small>EXPLORE</small>
-          <a href="#solutions">Solutions</a>
-          <a href="#industries">Industries</a>
-          <a href="#projects">Projects</a>
-        </div>
-
-        <div>
-          <small>START</small>
-          <a href="#process">How It Works</a>
-          <a href="#problem">Tell Us Your Problem</a>
-        </div>
-
-      </div>
+      <p>
+        Problem-first technology for modern businesses.
+      </p>
 
     </div>
 
-
     <div class="footer-bottom">
 
-      <span>© 2026 HackyTech</span>
+      <span>
+        © 2026 HackyTech. All rights reserved.
+      </span>
 
       <span>
-        Built around problems, not buzzwords.
+        Problem → Understand → Build → Improve
       </span>
 
     </div>
