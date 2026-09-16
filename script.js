@@ -1,34 +1,26 @@
 /* =========================================
    HACKYTECH
-   MAIN JAVASCRIPT
+   MAIN INTERFACE JAVASCRIPT
 ========================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
 
-  /* =========================================
-     ELEMENTS
-  ========================================== */
-
   const body = document.body;
 
-  const header = document.getElementById("site-header");
+  const header =
+    document.getElementById("site-header");
 
-  const menuToggle = document.getElementById("menu-toggle");
+  const menuToggle =
+    document.getElementById("menu-toggle");
 
-  const menuClose = document.getElementById("menu-close");
+  const menuClose =
+    document.getElementById("menu-close");
 
-  const mobileMenu = document.getElementById("mobile-menu");
+  const mobileMenu =
+    document.getElementById("mobile-menu");
 
-  const menuOverlay = document.getElementById("menu-overlay");
-
-  const exploreToggle =
-    document.getElementById("explore-toggle");
-
-  const exploreArrow =
-    document.getElementById("explore-arrow");
-
-  const mobileSubmenu =
-    document.getElementById("mobile-submenu");
+  const menuOverlay =
+    document.getElementById("menu-overlay");
 
 
   /* =========================================
@@ -45,15 +37,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
     body.classList.add("menu-open");
 
-    menuToggle.setAttribute("aria-expanded", "true");
-
-    mobileMenu.setAttribute("aria-hidden", "false");
+    menuToggle.setAttribute(
+      "aria-expanded",
+      "true"
+    );
 
     menuToggle.setAttribute(
       "aria-label",
       "Close menu"
     );
 
+    mobileMenu.setAttribute(
+      "aria-hidden",
+      "false"
+    );
   }
 
 
@@ -67,45 +64,58 @@ document.addEventListener("DOMContentLoaded", () => {
 
     body.classList.remove("menu-open");
 
-    menuToggle.setAttribute("aria-expanded", "false");
-
-    mobileMenu.setAttribute("aria-hidden", "true");
+    menuToggle.setAttribute(
+      "aria-expanded",
+      "false"
+    );
 
     menuToggle.setAttribute(
       "aria-label",
       "Open menu"
     );
 
+    mobileMenu.setAttribute(
+      "aria-hidden",
+      "true"
+    );
   }
 
 
-  menuToggle.addEventListener(
-    "click",
-    () => {
+  if (menuToggle) {
 
-      const isOpen =
-        mobileMenu.classList.contains("active");
+    menuToggle.addEventListener(
+      "click",
+      () => {
 
-      if (isOpen) {
-        closeMenu();
-      } else {
-        openMenu();
+        const isOpen =
+          mobileMenu.classList.contains("active");
+
+        if (isOpen) {
+          closeMenu();
+        } else {
+          openMenu();
+        }
+
       }
+    );
 
-    }
-  );
-
-
-  menuClose.addEventListener(
-    "click",
-    closeMenu
-  );
+  }
 
 
-  menuOverlay.addEventListener(
-    "click",
-    closeMenu
-  );
+  if (menuClose) {
+    menuClose.addEventListener(
+      "click",
+      closeMenu
+    );
+  }
+
+
+  if (menuOverlay) {
+    menuOverlay.addEventListener(
+      "click",
+      closeMenu
+    );
+  }
 
 
   /* =========================================
@@ -130,12 +140,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   /* =========================================
-     MOBILE NAVIGATION LINKS
+     MOBILE NAVIGATION
   ========================================== */
 
   const mobileLinks =
     document.querySelectorAll(
-      ".mobile-nav-link, .mobile-submenu a, .mobile-problem-button, .mobile-contact"
+      ".mobile-nav a"
     );
 
   mobileLinks.forEach((link) => {
@@ -153,49 +163,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   /* =========================================
-     EXPLORE PROBLEMS SUBMENU
-  ========================================== */
-
-  if (
-    exploreToggle &&
-    mobileSubmenu &&
-    exploreArrow
-  ) {
-
-    exploreToggle.addEventListener(
-      "click",
-      () => {
-
-        const isExpanded =
-          exploreToggle.getAttribute(
-            "aria-expanded"
-          ) === "true";
-
-        exploreToggle.setAttribute(
-          "aria-expanded",
-          String(!isExpanded)
-        );
-
-        mobileSubmenu.classList.toggle(
-          "active"
-        );
-
-        exploreArrow.textContent =
-          isExpanded ? "+" : "−";
-
-      }
-    );
-
-  }
-
-
-  /* =========================================
-     HEADER SCROLL EFFECT
+     HEADER SCROLL
   ========================================== */
 
   function updateHeader() {
 
-    if (window.scrollY > 30) {
+    if (!header) return;
+
+    if (window.scrollY > 35) {
 
       header.classList.add("scrolled");
 
@@ -207,6 +182,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   }
 
+
   window.addEventListener(
     "scroll",
     updateHeader,
@@ -217,79 +193,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   /* =========================================
-     CATEGORY EXPANSION
-  ========================================== */
-
-  const categoryButtons =
-    document.querySelectorAll(
-      ".category-expand"
-    );
-
-
-  categoryButtons.forEach((button) => {
-
-    button.addEventListener(
-      "click",
-      () => {
-
-        const card =
-          button.closest(".category-card");
-
-        if (!card) return;
-
-        card.classList.toggle("expanded");
-
-      }
-    );
-
-  });
-
-
-  /* =========================================
-     SCROLL REVEAL
-  ========================================== */
-
-  const revealElements =
-    document.querySelectorAll(".reveal");
-
-
-  const revealObserver =
-    new IntersectionObserver(
-      (entries, observer) => {
-
-        entries.forEach((entry) => {
-
-          if (entry.isIntersecting) {
-
-            entry.target.classList.add(
-              "visible"
-            );
-
-            observer.unobserve(
-              entry.target
-            );
-
-          }
-
-        });
-
-      },
-      {
-        threshold: 0.12,
-        rootMargin: "0px 0px -40px 0px"
-      }
-    );
-
-
-  revealElements.forEach((element) => {
-
-    revealObserver.observe(element);
-
-  });
-
-
-  /* =========================================
-     SMOOTH ANCHOR NAVIGATION
+     SMOOTH ANCHOR SCROLLING
   ========================================== */
 
   const anchors =
@@ -315,9 +219,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         const target =
-          document.querySelector(
-            targetId
-          );
+          document.querySelector(targetId);
 
         if (!target) {
           return;
@@ -326,16 +228,18 @@ document.addEventListener("DOMContentLoaded", () => {
         event.preventDefault();
 
         const headerHeight =
-          header.offsetHeight;
+          header
+            ? header.offsetHeight
+            : 0;
 
-        const targetPosition =
+        const position =
           target.getBoundingClientRect().top +
           window.scrollY -
           headerHeight -
-          10;
+          12;
 
         window.scrollTo({
-          top: targetPosition,
+          top: position,
           behavior: "smooth"
         });
 
@@ -346,7 +250,136 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   /* =========================================
-     PREVENT MOBILE MENU SCROLL LEAK
+     SCROLL REVEAL
+  ========================================== */
+
+  const revealElements =
+    document.querySelectorAll(
+      ".reveal"
+    );
+
+
+  if (
+    "IntersectionObserver" in window
+  ) {
+
+    const revealObserver =
+      new IntersectionObserver(
+        (entries, observer) => {
+
+          entries.forEach((entry) => {
+
+            if (
+              entry.isIntersecting
+            ) {
+
+              entry.target.classList.add(
+                "visible"
+              );
+
+              observer.unobserve(
+                entry.target
+              );
+
+            }
+
+          });
+
+        },
+        {
+          threshold: 0.12,
+          rootMargin:
+            "0px 0px -40px 0px"
+        }
+      );
+
+
+    revealElements.forEach(
+      (element) => {
+
+        revealObserver.observe(
+          element
+        );
+
+      }
+    );
+
+  } else {
+
+    revealElements.forEach(
+      (element) => {
+
+        element.classList.add(
+          "visible"
+        );
+
+      }
+    );
+
+  }
+
+
+  /* =========================================
+     PROJECT CARD POINTER EFFECT
+  ========================================== */
+
+  const projectCards =
+    document.querySelectorAll(
+      ".project-card"
+    );
+
+
+  projectCards.forEach((card) => {
+
+    card.addEventListener(
+      "pointermove",
+      (event) => {
+
+        if (
+          window.innerWidth < 900
+        ) {
+          return;
+        }
+
+        const rect =
+          card.getBoundingClientRect();
+
+        const x =
+          event.clientX - rect.left;
+
+        const y =
+          event.clientY - rect.top;
+
+        const rotateX =
+          ((y / rect.height) - 0.5) * -3;
+
+        const rotateY =
+          ((x / rect.width) - 0.5) * 3;
+
+        card.style.transform =
+          `translateY(-6px)
+           perspective(900px)
+           rotateX(${rotateX}deg)
+           rotateY(${rotateY}deg)`;
+
+      }
+    );
+
+
+    card.addEventListener(
+      "pointerleave",
+      () => {
+
+        card.style.transform = "";
+
+      }
+    );
+
+  });
+
+
+  /* =========================================
+     RESPONSIVE MENU CLEANUP
   ========================================== */
 
   window.addEventListener(
@@ -354,7 +387,7 @@ document.addEventListener("DOMContentLoaded", () => {
     () => {
 
       if (
-        window.innerWidth > 950 &&
+        window.innerWidth > 1050 &&
         mobileMenu.classList.contains("active")
       ) {
 
@@ -371,7 +404,7 @@ document.addEventListener("DOMContentLoaded", () => {
   ========================================== */
 
   console.log(
-    "HackyTech interface initialized."
+    "HackyTech technology interface initialized."
   );
 
 });
